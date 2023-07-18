@@ -7,6 +7,8 @@ import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +30,8 @@ import com.lookmyroom.services.ConsumerService;
 @RestController
 @RequestMapping("/consumer")
 public class ConsumerController {
+	private static final Logger logger 
+	  = LoggerFactory.getLogger(ConsumerController.class);
 	
 	@Autowired
 	private ConsumerService consumerService;
@@ -40,6 +44,10 @@ public class ConsumerController {
 	}
 	@GetMapping
 	public @ResponseBody List<Consumer> getAllConsumers() {
+		logger.debug("GET ALL CONSUMERS");
+		logger.info("GET ALL CONSUMERS");
+		logger.error("GET ALL CONSUMERS");
+		logger.warn("GET ALL CONSUMERS");
 		return consumerService.getAllConsumers();
 	}
 	@GetMapping("/{consumerId}")
